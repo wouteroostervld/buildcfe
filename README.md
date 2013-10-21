@@ -1,7 +1,13 @@
 buildcfe
 ========
 
-buildcfe: builds independent cfengine3
+buildcfe: builds independent cfengine3 installation. (Independent from software in /usr/local).
+
+Usage: buidcfe [TAG]
+
+Drops tarball in current dir.
+
+Tested on freebsd.
 
 Needs sudo to install stuff.
 
