@@ -3,7 +3,7 @@ buildcfe
 
 buildcfe: builds independent cfengine3 installation with linked libmysqlclient and libxml2. (Independent from software in /usr/local).
 
-Usage: buidcfe [TAG]
+Usage: ./buidcfe [TAG]
 
 Drops tarball in current dir.
 
