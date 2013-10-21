@@ -2,6 +2,7 @@
 
 set -ex
 
+ORIGDIR=`pwd`
 cd `dirname $0` 
 DIR=`pwd`
 DISTFILES="$DIR"/distfiles
@@ -58,10 +59,16 @@ cd $CHECKOUT
 if [ ! -z "$TAG" ]; then
 	git checkout $TAG
 fi
-sudo mkdir -p /var/cfengine/lib
 NO_CONFIGURE=YES ./autogen.sh
 LDCONFIG="-L/var/cfengine/lib" CFLAGS="-I/var/cfengine/include/" CPPFLAGS="-I/var/cfengine/include/" ./configure --prefix=/var/cfengine -with-libxml2=/var/cfengine --with-tokyocabinet=/var/cfengine --with-pcre=/var/cfengine --with-mysql=/var/cfengine
 gmake
 sudo gmake install
 rm -rf "$CHECKOUT"
 rm -rf "$SOURCES"
+OVERLAYNAME="cfengine_head_overlay.tgz"
+if [ ! -z "$TAG" ]; then 
+    : OVERLAYNAME=cfengine_"${TAG}"_overlay.tar.gz
+fi
+cd /
+sudo tar -czf "$ORIGDIR"/"$OVERLAYNAME" /var/cfengine
+
