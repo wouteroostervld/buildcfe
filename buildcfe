@@ -64,3 +64,4 @@ LDCONFIG="-L/var/cfengine/lib" CFLAGS="-I/var/cfengine/include/" CPPFLAGS="-I/va
 gmake
 sudo gmake install
 rm -rf "$CHECKOUT"
+rm -rf "$SOURCES"
