@@ -65,9 +65,9 @@ gmake
 sudo gmake install
 rm -rf "$CHECKOUT"
 rm -rf "$SOURCES"
-OVERLAYNAME="cfengine_head_overlay.tgz"
+OVERLAYNAME="cfengine_overlay_head.tgz"
 if [ ! -z "$TAG" ]; then 
-    : OVERLAYNAME=cfengine_"${TAG}"_overlay.tar.gz
+    : OVERLAYNAME=cfengine_overlay_"${TAG}".tar.gz
 fi
 cd /
 sudo tar -czf "$ORIGDIR"/"$OVERLAYNAME" /var/cfengine
