@@ -1,11 +1,13 @@
 buildcfe
 ========
 
+HEADS UP: removes /var/cfengine and rebuilds it from scratch (TODO: provide ezjail-flavour to build in jail).
+
 buildcfe: builds independent cfengine3 installation with linked libmysqlclient and libxml2. (Independent from software in /usr/local).
 
 Usage: ./buidcfe [TAG]
 
-Drops tarball in current dir.
+Drops tarball in current dir. 
 
 Tested on freebsd.
 
