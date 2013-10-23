@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+cd `dirname $0`
+DIRECTORY=`pwd`
+. /usr/local/etc/ezjail.conf
+if [ ! -d ${ezjail_jaildir}/flavours/buildcfe ]; then
+    sudo cp -a ezjail_flavour/buildcfe ${ezjail_jaildir}/flavours/buildcfe
+fi
+
+	

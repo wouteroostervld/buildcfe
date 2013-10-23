@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+if [ -z "$1" ]; then
+	usage
+fi
+WD=`pwd`
+cd `dirname $0`
+. /usr/local/etc/ezjail.conf
+RANDSTRING=`tr -dc 'A-Za-b0-9' </dev/random | head -c 8`
+JNAME=J_${RANDSTRING} 
+sudo ezjail-admin create -f buildcfe "${JNAME}" "$1"
+sudo cp ../../buildcfe ../../distfiles "${ezjail_jaildir}"/"${JNAME}"/root/
+sudo ezjail-admin onestart "$JNAME"
+sudo jexec "${JNAME}" /root/buildcfe "$2"
+sudo cp "${ezjail_jaildir}"/"${JNAME}"/cfengine_* "${WD}"/ 
+sudo ezjail-admin delete -wf "${JNAME}"
