@@ -15,4 +15,4 @@ Needs sudo to install stuff.
 
 You can give an tag to compile otherwise head will be compiled.
 
-Needs autotools, automake, sudo, bison, libtools, cmake and gmake.
+Needs git, autotools, automake, sudo, bison, libtools, cmake and gmake.
