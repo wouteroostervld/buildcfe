@@ -5,6 +5,7 @@ if [ -z "$1" ]; then
 fi
 WD=`pwd`
 cd `dirname $0`
+ezjail_jaildir=/usr/jails
 . /usr/local/etc/ezjail.conf
 RANDSTRING=`tr -dc 'A-Za-b0-9' </dev/random | head -c 8`
 JNAME=J_${RANDSTRING} 
